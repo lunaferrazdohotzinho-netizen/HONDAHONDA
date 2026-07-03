@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathaniel Honda Brasil - Site do Vendedor</title>
+    <meta name="description"
+        content="Conectando você à sua próxima moto com as melhores condições! Nathaniel Honda Brasil - Vendedor autorizado Honda.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="container">
+        <div id="header">
+            <div id="header_bg"
+                style="background-image: url('https://vendedor.site/site/honda/header.webp'); background-color: #CC0000;">
+                <div class="d-flex align-items-center justify-content-end p-3 gap-2">
+                    <div class="header_store_divisor d-none d-md-block"></div>
+                    <div class="header_store_image"
+                        style="background-image: url('nova_logo.png?v=3');">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex align-items-end justify-content-between flex-wrap">
+                <div>
+                    <div class="header_seller_image"
+                        style="background-image: url('nathaniel_honda.png?v=3');">
+                    </div>
+                    <div class="header_seller_name">
+                        Nathaniel Honda Brasil
+                        <svg class="verified-badge" viewBox="0 0 24 24" fill="#1DA1F2">
+                            <path
+                                d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z" />
+                        </svg>
+                    </div>
+                    <div class="header_seller_bio">Conectando você à sua próxima moto com as melhores condições!</div>
+                </div>
+                <div class="d-flex gap-2">
+                    <a href="https://wa.me/5586981732667" target="_blank"
+                        class="btn btn-primary d-flex align-items-center gap-2">
+                        <i class="bi bi-whatsapp"></i> Fale comigo
+                    </a>
+                    <a href="https://www.instagram.com/cnmotoshondaa" target="_blank"
+                        class="btn-circle btn-primary d-flex align-items-center justify-content-center"
+                        style="text-decoration:none;">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Motorcycle Grid -->
+    <div class="container">
+        <div class="section-title">Escolha sua moto</div>
+        <div class="row" id="motorcycle-grid">
+            <!-- Motorcycles will be rendered by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <div id="footer" class="text-center">
+            <div class="d-flex justify-content-center gap-2 mb-3">
+                <a href="ficha-cdc.html" class="btn btn-primary">FICHA CDC</a>
+                <a href="ficha-cnh.html" class="btn btn-primary">FICHA CNH</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Widget -->
+    <div class="floating_whatsapp_button" id="floating_whatsapp_button">
+        <div class="d-flex align-items-end gap-2 justify-content-end">
+            <div>
+                <div class="text-end mb-1">
+                    <button class="floating_whatsapp_button_close_button"
+                        onclick="document.getElementById('floating_whatsapp_button').style.display='none'">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <a href="https://wa.me/5586981732667" target="_blank"
+                    class="btn btn-alternative d-flex align-items-center gap-2" style="text-decoration: none;">
+                    <i class="bi bi-whatsapp"></i> Estou online. Fale agora!
+                </a>
+            </div>
+            <a href="https://wa.me/5586981732667" target="_blank">
+                <img src="nathaniel_honda.png?v=3"
+                    alt="Nathaniel Honda Brasil" width="56" height="56" style="border-radius: 50%; object-fit: cover;">
+            </a>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal Template (reused by JS) -->
+    <div class="modal fade product-modal" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-left" id="modalBtnLeft" style="display:none;">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <h5 class="modal-title" id="productModalTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="productModalCarousel" class="carousel slide" data-bs-ride="false">
+                        <div class="carousel-inner" id="carouselInner"></div>
+                        <div class="carousel-indicators" id="carouselIndicators"></div>
+                    </div>
+                    <div class="product-modal-payment-btns d-flex gap-2 mb-3">
+                        <button class="btn btn-primary flex-fill" id="modalBtnConsorcio">Consórcio</button>
+                        <button class="btn btn-primary flex-fill" id="modalBtnFinanciamento">Financiamento</button>
+                        <a href="https://wa.me/5586981732667" target="_blank"
+                            class="btn btn-alternative flex-fill d-flex align-items-center justify-content-center gap-1"
+                            style="text-decoration:none;">
+                            <i class="bi bi-whatsapp"></i> Whatsapp
+                        </a>
+                    </div>
+                    <div id="productModalDescription" class="product-modal-description mb-3"></div>
+                    <div id="productModalSpecs"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Consórcio Modal Template -->
+    <div class="modal fade product-consortia-modal" id="consortiaModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="d-flex align-items-center gap-1">
+                        <div class="store_image"
+                            style="background-image: url('nova_logo.png?v=3');">
+                        </div>
+                        <div class="seller_image"
+                            style="background-image: url('nathaniel_honda.png?v=3');">
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-title mb-2" id="consortiaModalTitle">Tabela de consórcio</div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="product-consortia-modal-credit flex-fill">
+                            Crédito de<br><b id="consortiaModalCredit"></b>
+                        </div>
+                        <img id="consortiaModalImage" src="" class="product-consortia-modal-image" height="80" alt="">
+                    </div>
+                    <div id="consortiaModalPlans" class="mb-3"></div>
+                    <div class="d-grid gap-2">
+                        <a href="https://wa.me/5586981732667" target="_blank"
+                            class="btn btn-alternative d-flex align-items-center justify-content-center gap-2"
+                            style="text-decoration:none;">
+                            <i class="bi bi-whatsapp"></i> Chamar no Whatsapp
+                        </a>
+                        <a href="https://wa.me/5586981732667?text=Olá! Gostaria de informações sobre repasse de consórcio."
+                            target="_blank"
+                            class="btn btn-repasse d-flex align-items-center justify-content-center gap-2"
+                            style="text-decoration:none;">
+                            QUERO UM REPASSE DE CONSÓRCIO
+                        </a>
+                    </div>
+                    <div class="product-consortia-modal-legal-text mt-3" style="font-size: 12px;">
+                        * Valores sujeitos a alteração. Consulte condições.
+                    </div>
+                </div>
+                <div class="modal-watermark">
+                    <span>Nathaniel Honda</span><span>Nathaniel Honda</span><span>Nathaniel Honda</span>
+                    <span>Nathaniel Honda</span><span>Nathaniel Honda</span><span>Nathaniel Honda</span>
+                    <span>Nathaniel Honda</span><span>Nathaniel Honda</span><span>Nathaniel Honda</span>
+                    <span>Nathaniel Honda</span><span>Nathaniel Honda</span><span>Nathaniel Honda</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Financing Modal Template -->
+    <div class="modal fade product-financing-modal" id="financingModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="d-flex align-items-center gap-1">
+                        <div class="store_image"
+                            style="background-image: url('nova_logo.png?v=3');">
+                        </div>
+                        <div class="seller_image"
+                            style="background-image: url('nathaniel_honda.png?v=3');">
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-title mb-2" id="financingModalTitle">Simulação de financiamento</div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="product-financing-modal-credit flex-fill">
+                            Solicite uma simulação de financiamento para<br><b id="financingModalBike"></b>
+                        </div>
+                        <img id="financingModalImage" src="" class="product-financing-modal-image" height="80" alt="">
+                    </div>
+                    <form id="financingForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Seu nome" id="financingName" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Seu telefone" id="financingPhone"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Valor de entrada (opcional)"
+                                id="financingEntry">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit"
+                                class="btn btn-alternative d-flex align-items-center justify-content-center gap-2">
+                                <i class="bi bi-whatsapp"></i> Enviar para Whatsapp
+                            </button>
+                        </div>
+                    </form>
+                    <div class="product-financing-modal-legal-text mt-3" style="font-size: 12px;">
+                        * Seus dados serão enviados diretamente para o vendedor via WhatsApp.
+                    </div>
+                </div>
+                <div class="modal-watermark">
+                    <span>Nathaniel Honda</span><span>Nathaniel Honda</span><span>Nathaniel Honda</span>
+                    <span>Nathaniel Honda</span><span>Nathaniel Honda</span><span>Nathaniel Honda</span>
+                    <span>Nathaniel Honda</span><span>Nathaniel Honda</span><span>Nathaniel Honda</span>
+                    <span>Nathaniel Honda</span><span>Nathaniel Honda</span><span>Nathaniel Honda</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js?v=3"></script>
+</body>
+
+</html>
